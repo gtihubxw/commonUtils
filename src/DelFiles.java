@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
@@ -14,15 +15,16 @@ import java.util.Properties;
 public class DelFiles {
 
 	/**
-	 * ±éÀúÉ¾³ıÎÄ¼ş
+	 * éå†åˆ é™¤æ–‡ä»¶
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String srcPath = "C:\\Users\\whaty\\Documents\\Tencent Files\\1175912263\\FileRecv\\20171224¿¼ÊÔÅú´ÎÊ×¸Ö³É¼¨µ¥_ÒÑÌîÍê";
+		String srcPath = "";
 		
-		System.out.println(FileUtils.countFiles(srcPath));
+//		System.out.println(FileUtils.countFiles(srcPath));
 //		delFiles(srcPath);
+		FileUtils.extractFiles("F:\\maven_workspace\\src\\", "E:\\soft\\maven_workspace\\src\\", FileUtils.readListFromFile(new File("F:\\codeL.txt"),"\n"));
 	}
 	
 	
@@ -58,7 +60,7 @@ class FileUtils {
 			File[] xlsFiles = f.listFiles();
 			for (int j = 0; j < xlsFiles.length; j++) {
 				File xlsFile = xlsFiles[j];
-				if (!xlsFile.getName().startsWith("³É¼¨µ¥[´óÍ¬")) {
+				if (!xlsFile.getName().startsWith("æˆç»©å•[å¤§åŒ")) {
 					boolean flag = xlsFile.delete();
 					if (!flag) {
 						System.out.println("Del error,file:" + xlsFile);
@@ -69,7 +71,7 @@ class FileUtils {
 	}
 
 	/**
-	 * ²éÕÒ¸ùÄ¿Â¼ÏÂËùÓĞÎÄ¼şÃûÆ¥ÅäËù´«ÕıÔòµÄÎÄ¼ş
+	 * æŸ¥æ‰¾æ ¹ç›®å½•ä¸‹æ‰€æœ‰æ–‡ä»¶ååŒ¹é…æ‰€ä¼ æ­£åˆ™çš„æ–‡ä»¶
 	 * 
 	 * @param path
 	 * @param regex
@@ -82,7 +84,7 @@ class FileUtils {
 	}
 
 	/**
-	 * µİ¹é²éÕÒÎÄ¼ş
+	 * é€’å½’æŸ¥æ‰¾æ–‡ä»¶
 	 * 
 	 * @param dirFile
 	 * @param regex
@@ -102,12 +104,24 @@ class FileUtils {
 	}
 	/**
 	 * Use OS command to copy file
-	 * @param source
-	 * @param dest
+	 * Use this method to avoid the problem caused by different path separator in different OS
+	 * @param source source file
+	 * @param dest destination file
 	 * @throws IOException
 	 * @throws InterruptedException
 	 */
 	public static void copyFileUsingCommand(File source, File dest)
+			throws IOException, InterruptedException {
+		copyFileUsingCommand(source.getAbsolutePath(), dest.getAbsolutePath());
+	}
+	/**
+	 * Use OS command to copy file
+	 * @param src srcPath
+	 * @param des desPath
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
+	public static void copyFileUsingCommand(String src, String des)
 			throws IOException, InterruptedException {
 		Properties props = System.getProperties();
 		String osName = props.getProperty("os.name");
@@ -116,31 +130,29 @@ class FileUtils {
 			return;
 		}
 		String cmd = null;
-		String src = source.getAbsolutePath();
-		String des = dest.getAbsolutePath();
 		if (osName.toLowerCase().startsWith("win")) {
 			// cmd = "xcopy " + src + " " + des;
 			cmd = "xcopy " + src + " " + des + "/d/y";
 		} else {
 			cmd = "cp -u " + src + " " + des;
 		}
-		// »ñÈ¡ÔËĞĞÊ±
+		// è·å–è¿è¡Œæ—¶
 		Runtime rt = Runtime.getRuntime();
-		// »ñÈ¡½ø³Ì
+		// è·å–è¿›ç¨‹
 		Process p = rt.exec(cmd);
 		OutputStream stdout = p.getOutputStream();
 		System.out.println("Process outputStream:");
-		// Ä¿±ê source ÊÇÎÄ¼şÃû»¹ÊÇÄ¿Â¼Ãû, (F = ÎÄ¼ş£¬D = Ä¿Â¼)?
+		// ç›®æ ‡ source æ˜¯æ–‡ä»¶åè¿˜æ˜¯ç›®å½•å, (F = æ–‡ä»¶ï¼ŒD = ç›®å½•)?
 		if (src.substring(src.lastIndexOf('\\')).contains(".")) {
 			char f = 'f';
 			stdout.write(f);
 		}
 		stdout.close();
-		// »ñÈ¡½ø³ÌµÄ±ê×¼ÊäÈëÁ÷
+		// è·å–è¿›ç¨‹çš„æ ‡å‡†è¾“å…¥æµ
 		final InputStream is1 = p.getInputStream();
-		// »ñÈ¡½ø³ÌµÄ´íÎóÁ÷
+		// è·å–è¿›ç¨‹çš„é”™è¯¯æµ
 		final InputStream is2 = p.getErrorStream();
-		// Æô¶¯Á½¸öÏß³Ì£¬Ò»¸öÏß³Ì¸ºÔğ¶Á±ê×¼Êä³öÁ÷£¬ÁíÒ»¸ö¸ºÔğ¶Á±ê×¼´íÎóÁ÷
+		// å¯åŠ¨ä¸¤ä¸ªçº¿ç¨‹ï¼Œä¸€ä¸ªçº¿ç¨‹è´Ÿè´£è¯»æ ‡å‡†è¾“å‡ºæµï¼Œå¦ä¸€ä¸ªè´Ÿè´£è¯»æ ‡å‡†é”™è¯¯æµ
 		new Thread() {
 			public void run() {
 				BufferedReader br1 = new BufferedReader(new InputStreamReader(
@@ -196,7 +208,7 @@ class FileUtils {
 		 * bufferedReader.readLine()) != null) { sb.append(line + "\n");
 		 * System.out.println(line); }
 		 */
-		// Èç¹ûp²»Îª¿Õ£¬ÄÇÃ´ÒªÇå¿Õ
+		// å¦‚æœpä¸ä¸ºç©ºï¼Œé‚£ä¹ˆè¦æ¸…ç©º
 		if (p != null) {
 			p.destroy();
 			p = null;
@@ -248,5 +260,22 @@ class FileUtils {
 				}
 			}
 		}
+	}
+	
+	public static List<String> readListFromFile(File file, String separator){
+		return Arrays.asList(readFile(file).split(separator));
+	}
+	
+	public static List<String> extractFiles(String outPath, String rootPath, List<String> fileList){
+		List<String> errFileList = new ArrayList<String>();
+		for(String filePath : fileList){
+			try {
+				copyFileUsingCommand(new File(rootPath + filePath), new File(outPath + filePath));
+			} catch (Exception e) {
+				e.printStackTrace();
+				errFileList.add(filePath);
+			}
+		}
+		return errFileList;
 	}
 }
