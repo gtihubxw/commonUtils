@@ -23,32 +23,19 @@ public class ExcelUtils {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		ExcelUtils eu = new ExcelUtils();
-		/*String path = "F:\\dxw\\ÏîÄ¿ÎÄµµ\\±±¿Æ\\Êı¾İµ¼Èë\\¸÷ÖĞĞÄ²¹±¨ÂÛÎÄ³É¼¨";
-		String[] fields = { "regNo", "name", "grade", "cname", "score" };
-		String[] oFields = { "regNo", "cname", "score" };
-		eu.mergeExcels(path, "F:\\dxw\\ÏîÄ¿ÎÄµµ\\±±¿Æ\\Êı¾İµ¼Èë\\´¦ÀíºóÊı¾İ\\±ÏÒµÂÛÎÄ³É¼¨£¨×Ü£©.xls",
-				3, fields, oFields, false);*/
-		// eu.divideExcels("F:\\dxw\\ÏîÄ¿ÎÄµµ\\±±¿Æ\\Êı¾İµ¼Èë\\import_score-18-3-5µ¼ÈëÆ½Ê±³É¼¨Ê×¸Ö.xls",
-		// "F:\\dxw\\ÏîÄ¿ÎÄµµ\\±±¿Æ\\Êı¾İµ¼Èë\\´¦ÀíºóÊı¾İ\\·Ö¸î\\Ê×¸Ö\\", 1, 1000);
-		String path = "C:\\Users\\whaty\\Desktop\\1";
-		String[] fields = { "ÎÊÌâĞòºÅ", "ÎÊÌâÃèÊö", "12ÔÂ11ÈÕ", "12ÔÂ12ÈÕ", "12ÔÂ13ÈÕ", "12ÔÂ14ÈÕ", "12ÔÂ15ÈÕ", "12ÔÂ16ÈÕ", "12ÔÂ17ÈÕ", "×Ü¼Æ" };
-		eu.mergeExcels(path, "F:\\dxw\\ÏîÄ¿ÎÄµµ\\±±¿Æ\\Êı¾İµ¼Èë\\´¦ÀíºóÊı¾İ\\1.xls",
-				2, fields, null, false);
+		
 	}
 
 	/**
-	 * ºÏ²¢³É¼¨µ¥Excel
+	 * åˆå¹¶æˆç»©å•Excel
 	 * 
 	 * @param parentPath
 	 * @param outPath
 	 */
 	public void mergeExcels(String parentPath, String outPath, int startRow,
 			String[] fields, String[] oFields, boolean allowBlank) {
-		// »ñÈ¡ËùÓĞ¿¼µã¡¢¿Î³Ì³É¼¨µ¥ExcelÄÚÊı¾İ
 		List<Map<String, String>> scores = new ArrayList<Map<String, String>>();
-		// .xlsx»á±¨´í£¬ĞèÁí´æÎª.xls
+		// .xlsxä¼šæŠ¥é”™ï¼Œéœ€å¦å­˜ä¸º.xls
 		List<File> fileList = FileUtils.getFileListByRex(parentPath,
 				".*\\.(xls|xlsx)$");
 		// System.out.println(fileList.size() + "===" + fileList.get(0));
@@ -81,7 +68,7 @@ public class ExcelUtils {
 				}
 			}
 		}
-		// Êä³öµ½Ò»¸öExcelÖĞ
+		// è¾“å‡ºåˆ°ä¸€ä¸ªExcelä¸­
 		WritableWorkbook outBook = null;
 		try {
 			if (oFields == null) {
@@ -97,7 +84,7 @@ public class ExcelUtils {
 				}
 			}
 			if (outBook != null) {
-				outBook.write(); // Ğ´ÈëExcel
+				outBook.write(); // å†™å…¥Excel
 			}
 			System.out.println("Complete" + scores.size());
 		} catch (Exception e) {
@@ -114,7 +101,7 @@ public class ExcelUtils {
 	}
 
 	/**
-	 * ·Ö¸îExcel
+	 * åˆ†å‰²Excel
 	 * 
 	 * @param srcPath
 	 * @param outDir
@@ -147,7 +134,7 @@ public class ExcelUtils {
 			for (int i = titleRow; i < rows; i++) {
 				for (Cell c : sheet.getRow(i)) {
 					String con = c.getContents().trim();
-					if (con == null || "".equals(con)) { // ³É¼¨µ¼ÈëÌØÊâ´¦Àí
+					if (con == null || "".equals(con)) { // æˆç»©å¯¼å…¥ç‰¹æ®Šå¤„ç†
 						con = "0";
 					}
 					Label label = new Label(c.getColumn(), curRow, con);
@@ -165,7 +152,7 @@ public class ExcelUtils {
 					}
 					// print
 					if (outBook != null) {
-						outBook.write(); // Ğ´ÈëExcel
+						outBook.write(); // å†™å…¥Excel
 						outBook.close();
 						outBook = null;
 					}
@@ -196,7 +183,7 @@ public class ExcelUtils {
 
 	}
 
-	// Î´Íê³É
+	// æœªå®Œæˆ
 	public void export(String tempPath, String oPath) {
 		String[] options = { "field" };
 		try {
@@ -240,7 +227,7 @@ public class ExcelUtils {
 	}
 	/*
 	*//**
-	 * µİ¹é²éÕÒ¸ùÄ¿Â¼ÏÂËùÓĞÎÄ¼şÃûÆ¥ÅäËù´«ÕıÔòµÄÎÄ¼ş
+	 * é€’å½’æŸ¥æ‰¾æ ¹ç›®å½•ä¸‹æ‰€æœ‰æ–‡ä»¶ååŒ¹é…æ‰€ä¼ æ­£åˆ™çš„æ–‡ä»¶
 	 * 
 	 * @param fileList
 	 */
