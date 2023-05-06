@@ -25,117 +25,6 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-//		Map<String, String> map = new HashMap<String, String>();
-//		Test t = new Test();
-//		Integer i = 5;
-//		String testStr = "abc.txt";
-//		String[] split = "123213".split(",");
-//		/*for (String str : split) {
-//			System.out.println(str);
-//		}*/
-//		String reg = "=(\\s*'\\+value1\\+')";
-//		System.out.println("=   '+value1+'".matches(reg));
-//		System.out.println("=   '+value1+'".replaceAll(reg," in ('1','2')"));
-		// System.out.println(map.put("a", "1"));
-		// System.out.println(map.put("a", "2"));
-		// System.out.println(++i);
-		// System.out.println(i);
-		// System.out.println(t.getCardLastNum("51302320000525235"));
-		/*try {
-			t.copyFileUsingCommand(new File("F:\\18.xls"), new File(
-					"D:\\demo\\1.xls"));
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-//		System.out.println(testStr.substring(0,testStr.indexOf(".")));
-//		System.out.println(t.canAddCourseTimes("2018-3-2 10:39:50"));
-//		System.out.println("a.xls".substring("a.xls".lastIndexOf(".")));
-//		List<String> list = new ArrayList<String>();
-//		list.add("1");
-//		list.add("2");
-//		list.add("3");
-//		System.out.println(listToSqlIn(list));
-//		System.out.println(IdCard.getCardLastNum("37132719900506433X"));
-		/*String str = FileUtils.readFile(new File("D:\\demo\\answer.txt"));
-		str = StringUtils.listToStr(StringUtils.getStrList(str, "<img", ">",false));
-		FileUtils.writeFile(str, "answer-1.txt", "D:\\demo\\answer\\");*/
-		
-//		String str = FileUtils.readFile(new File("D:\\demo\\title.txt"));
-		//str = StringUtils.listToStr(StringUtils.getStrList(str, "<img", ">",false));
-		//FileUtils.writeFile(str, "title-1.txt", "D:\\demo\\answer\\");
-//		FileUtils.writeFile(StringUtils.listToStr(getImageSrc(str)), "title-1.txt", "D:\\demo\\answer\\");
-		// String str = FileUtils.readFile(new File("D:\\demo\\answer.txt"));
-		//str = StringUtils.listToStr(StringUtils.getStrList(str, "<img", ">",false));
-		//FileUtils.writeFile(str, "title-1.txt", "D:\\demo\\answer\\");
-		//str = str.replace("\\\"", "\"");
-		//FileUtils.writeFile(StringUtils.listToStr(getImageSrc(str)), "answer-1.txt", "D:\\demo\\answer\\");
-		/*Test t = new Test();
-		String str = FileUtils.readFile(new File("D:\\demo\\img.txt"));
-		String[] strs = str.split("\n");
-		int i = 0;
-		for(String resPath : strs){
-			t.makeImage("http://cec.ustb.edu.cn", resPath.replaceAll("\r|\n", ""), "D:/demo/ustb/");
-//			t.makeImage("http://exam.webtrn.cn", "/resourcefile/question/d300053040454c9b94c374ec596499a5/resources/3261448587160035.jpg", "D:/demo/");
-		}
-		System.out.println("compelte");*/
-//		t.makeImage("http://exam.webtrn.cn", "/resourcefile/bdeditor/ustb/upload/image/20160705/1467698138201030882.jpg", "D:\\demo\\");
-		
-	/*	try {
-			String path = "/UserFiles/Image/chenj15/20150427151326/ÃüÃû»¯ºÏÎï1.png";
-			StringBuffer newPath = new StringBuffer();
-			String[] strs = path.split("/");
-			for(int i=1; i < strs.length; i++){
-				newPath.append("/").append(URLEncoder.encode(strs[i], "UTF-8"));
-			}
-			System.out.println(newPath.toString());
-			new Test().makeImage("http://scnu-exam.webtrn.cn", newPath.toString() , "D:\\demo\\");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-	/*	String siteCode = "lyzj2018";
-		String s = Test.getStringR(siteCode);
-		System.out.println(s);
-		Test.getStringR(siteCode);
-		System.out.println(s);*/
-		/*Pattern p=Pattern.compile("\\{a:[\\s\\S]*:[\\s\\S]*\\}"); 
-		System.out.println(p.matcher("{a: 1: 123}").find());*/
-//		System.out.println(concatComboSQL("ÖĞ¹²µ³Ô±,ÖĞ¹²Ô¤±¸µ³Ô±,¹²ÇàÍÅÔ±,Ãñ¸ï»áÔ±,ÃñÃËÃËÔ±,Ãñ½¨»áÔ±,Ãñ½ø»áÔ±,Å©¹¤µ³µ³Ô±,ÖÂ¹«µ³µ³Ô±,¾ÅÈıÑ§ÉçÉçÔ±,Ì¨ÃËÃËÔ±,ÎŞµ³ÅÉÃñÖ÷ÈËÊ¿,ÈºÖÚ"));
-//		FileUtils.writeFile(StringUtils.concatOracleIn("C:\\Users\\whaty\\Desktop\\2.txt"), "ÉèÖÃÑ§ÉúÍËÑ§user±í.sql", "D:\\demo\\");
-		/*for(int i =1; i< 10; i++){
-			System.out.println("<resource identifier=\"R_0"+i+"\" type=\"webcontent\" adlcp:scormtype=\"sco\" href=\"0"+i+"/WhatyFlash/index.html\">");
-			System.out.println("<file href=\"0"+i+"/WhatyFlash/index.html\"/>");
-			System.out.println("</resource> ");
-		}
-		for(int i =10; i<= 56; i++){
-			System.out.println("<resource identifier=\"R_"+i+"\" type=\"webcontent\" adlcp:scormtype=\"sco\" href=\""+i+"/WhatyFlash/index.html\">");
-			System.out.println("<file href=\""+i+"/WhatyFlash/index.html\"/>");
-			System.out.println("</resource> ");
-		}*/
-//		copyFileByBufferSteam();
-		/*List list = new ArrayList();
-		Object[] o = new Object[]{"1"};
-		list.add("1");
-		if(list.get(0) instanceof  Object[]){
-			Object[] a = (Object[]) list.get(0);
-			System.out.println("222222");
-		}*/
-		/*int i = 0;
-		char a = (char) (i+97);
-		System.out.println((char) (i+65) + "ble");*/
-		/*DateFormat df=new SimpleDateFormat(dtShort);
-		Date statrdate;
-		try {
-			statrdate = df.parse("20180801");
-			System.out.println(statrdate.getTime());
-			statrdate = df.parse("20190123");
-			System.out.println(statrdate.getTime());
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
 		new Test().test();
 	}
 	
@@ -144,7 +33,7 @@ public class Test {
 	}
 	public static final String dtShort = "yyyyMMdd";
 	/**
-     * »ñµÃÒ»¸ö¸ñÊ½ÎªyyyyMMddµÄµ±Ç°ÈÕÆÚ
+     * è·å¾—ä¸€ä¸ªæ ¼å¼ä¸ºyyyyMMddçš„å½“å‰æ—¥æœŸ
      * */
     public static String getCurDate(){
 		Date date=new Date();
@@ -152,7 +41,7 @@ public class Test {
 		return df.format(date);    	
     }
 	/**
-	 * »ñµÃÒ»¸ö100Î»µÄ×Ö·û´®
+	 * è·å¾—ä¸€ä¸ª100ä½çš„å­—ç¬¦ä¸²
 	 * */
     public static String randomString(long length) {
         int len = (int) length;
@@ -201,12 +90,12 @@ public class Test {
 	}
 	
 	public void makeImage(String urlRoot, String resPath, String filePath) {
-		// ÍøÂçÇëÇóËùĞè±äÁ¿
+		// ç½‘ç»œè¯·æ±‚æ‰€éœ€å˜é‡
 		try {
-			// »ñÈ¡ÊäÈëÁ÷
+			// è·å–è¾“å…¥æµ
 			BufferedInputStream in = new BufferedInputStream(new URL(urlRoot
 					+ resPath).openStream());
-			// ´´½¨ÎÄ¼şÁ÷
+			// åˆ›å»ºæ–‡ä»¶æµ
 			File file = new File(filePath + resPath);
 			if (!file.getParentFile().exists()) {
 				file.getParentFile().mkdirs();
@@ -214,7 +103,7 @@ public class Test {
 			}
 			BufferedOutputStream out = new BufferedOutputStream(
 					new FileOutputStream(file));
-			// »º³å×Ö½ÚÊı×é
+			// ç¼“å†²å­—èŠ‚æ•°ç»„
 			byte[] data = new byte[1024];
 			/*int length = in.read(data);
 			while (length != -1) {
@@ -226,7 +115,7 @@ public class Test {
             	out.write(data, 0, len);
             	out.flush();
             }
-			//System.out.println("ÕıÔÚÖ´ĞĞÏÂÔØÈÎÎñ£ºµ±Ç°ÕıÔÚÏÂÔØÍ¼Æ¬" + resPath);
+			//System.out.println("æ­£åœ¨æ‰§è¡Œä¸‹è½½ä»»åŠ¡ï¼šå½“å‰æ­£åœ¨ä¸‹è½½å›¾ç‰‡" + resPath);
 			in.close();
 			out.close();
 		} catch (MalformedURLException e) {
@@ -266,11 +155,11 @@ public class Test {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < strs.length; i++) {
 			sb.append("'bean.peGelExamPlan.name=")
-			.append("»ú¿¼2018B")
+			.append("æœºè€ƒ2018B")
 			.append("&bean.peTchCourse.name=")
 			.append(strs[i])
 			.append("&bean.computerExamName=")
-			.append("»ú¿¼2018B")
+			.append("æœºè€ƒ2018B")
 			.append(strs[i])
 			.append("',");
 		}
@@ -283,9 +172,9 @@ public class Test {
 		int len = 0;
 		try {
 			BufferedInputStream bufInputStream = new BufferedInputStream(
-					new FileInputStream(iFile)); // »º³åÊäÈëÁ÷
+					new FileInputStream(iFile)); // ç¼“å†²è¾“å…¥æµ
 			BufferedOutputStream bufOutputStream = new BufferedOutputStream(
-					new FileOutputStream(oFile)); // »º³åÊä³öÁ÷
+					new FileOutputStream(oFile)); // ç¼“å†²è¾“å‡ºæµ
 			int i = -1;
 			byte[] data = new byte[10240];
 			while ((i = bufInputStream.read(data, 0, data.length)) != -1) {
